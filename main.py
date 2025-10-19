@@ -1,29 +1,30 @@
-# 接收用户输入的一行字符
-input_str = input("请输入一行字符：")
+def count_characters():
+    # 从键盘输入一行字符
+    s = input()
+    
+    # 初始化计数器
+    letters = 0
+    digits = 0
+    spaces = 0
+    others = 0
+    
+    # 遍历字符串中的每个字符
+    for char in s:
+        if 'a' <= char <= 'z' or 'A' <= char <= 'Z':  # 英文字母
+            letters += 1
+        elif '0' <= char <= '9':  # 数字
+            digits += 1
+        elif char == ' ':  # 空格
+            spaces += 1
+        else:  # 其他字符
+            others += 1
+    
+    # 严格按照要求格式输出结果
+    print("英文字符: {}".format(letters))
+    print("数字: {}".format(digits))
+    print("空格: {}".format(spaces))
+    print("其他字符: {}".format(others))
 
-# 初始化各类字符的计数器
-english_char = 0
-number_char = 0
-space_char = 0
-other_char = 0
-
-# 遍历输入字符串中的每一个字符
-for c in input_str:
-    # 判断是否为英文字母
-    if c >= 'a' and c <= 'z' or c >= 'A' and c <= 'Z':
-        english_char += 1
-    # 判断是否为数字
-    elif c >= '0' and c <= '9':
-        number_char += 1
-    # 判断是否为空格
-    elif c == ' ':
-        space_char += 1
-    # 其余的为其他字符
-    else:
-        other_char += 1
-
-# 按照指定格式输出统计结果
-print(f"英文字符:{english_char}")
-print(f"数字:{number_char}")
-print(f"空格:{space_char}")
-print(f"其他字符:{other_char}")
+# 调用函数
+if __name__ == "__main__":
+    count_characters()
