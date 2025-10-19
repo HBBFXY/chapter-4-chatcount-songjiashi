@@ -1,25 +1,29 @@
-# 从键盘输入一行字符
-text = input("请输入一行字符：")
+# 接收用户输入的一行字符
+input_str = input("请输入一行字符：")
 
-# 初始化计数器
-english_letters = 0  # 英文字符
-digits = 0           # 数字
-spaces = 0           # 空格
-others = 0           # 其他字符
+# 初始化各类字符的计数器
+english_char = 0
+number_char = 0
+space_char = 0
+other_char = 0
 
-# 遍历每个字符并统计
-for char in text:
-    if 'a' <= char <= 'z' or 'A' <= char <= 'Z':  # 检查是否是英文字母
-        english_letters += 1
-    elif '0' <= char <= '9':  # 检查是否是数字
-        digits += 1
-    elif char == ' ':  # 检查是否是空格
-        spaces += 1
-    else:  # 其他字符
-        others += 1
+# 遍历输入字符串中的每一个字符
+for c in input_str:
+    # 判断是否为英文字母
+    if c >= 'a' and c <= 'z' or c >= 'A' and c <= 'Z':
+        english_char += 1
+    # 判断是否为数字
+    elif c >= '0' and c <= '9':
+        number_char += 1
+    # 判断是否为空格
+    elif c == ' ':
+        space_char += 1
+    # 其余的为其他字符
+    else:
+        other_char += 1
 
-# 输出结果
-print(f"英文字符: {english_letters}")
-print(f"数字: {digits}")
-print(f"空格: {spaces}")
-print(f"其他字符: {others}")
+# 按照指定格式输出统计结果
+print(f"英文字符:{english_char}")
+print(f"数字:{number_char}")
+print(f"空格:{space_char}")
+print(f"其他字符:{other_char}")
